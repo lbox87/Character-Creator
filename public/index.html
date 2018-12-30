@@ -22,11 +22,41 @@
    <script src="https://code.jquery.com/jquery.min.js"></script>
    <script src="script.js"></script>
  </head>
+ 
  <body>
-   <header role="banner">
+   <header role="banner">*Clever App Name*
    </header>
    <main role="main">
-       <p>Hello World</p>
+        <div class="container">
+                <h1>Sign In/Up</h1>
+            
+                <label for="email"><b>Email</b></label>
+                <input type="text" placeholder="Enter Email" name="email" required>
+            
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+            
+                <!-- <label for="psw-repeat"><b>Repeat Password</b></label>
+                <input type="password" placeholder="Repeat Password" name="psw-repeat" required> -->
+            
+                <label>
+                  <input type="checkbox" name="sign-up" style="margin-bottom:15px"> I don't have an account.
+                </label>
+                      
+                <div class="clearfix">
+                  <button type="button" class="cancelbtn">Cancel</button>
+                  <button type="submit" class="signinbtn">Sign In</button>
+                  <button type="submit" class="signupbtn">Sign Up</button>
+                </div>
+              </div>
+            </form>
+
+            <button type="button" class="create">Create a New *Something*</button>
+            <ul><h2>My *Stuff*</h2>
+                <li>*data*</li>
+                <li>*data*</li>
+                <li>*data*</li>
+            </ul>
    </main>
  </body>
 </html>
