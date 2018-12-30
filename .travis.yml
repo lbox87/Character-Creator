@@ -1,2 +1,9 @@
 language: node_js
 node_js: node
+deploy:
+  provider: heroku
+  api_key:
+    secure: WcIZy3uGof181SvV8Ipa2TiahasY5E/R4WITrpUv1sOszQa9kJwx3hQxQYWHFTvdC56GcWWdGS+Rnaz/diGhBuS1zz7uD+tpX1kHYD8xH0tjg4Ch8mKfy7ukNVIEYxbKxDmAUu5oWJTKZr8HjR8lhTx6nyWhnY0496Hk1XweGHbU93AzSkLDV/T6zQQyzJkb99IhTGWwGf3BR0wsXEzCddIQWuw5maaOcz1c0lsD2rYyoOEZpGqbqwYxK7zyykZrks7C6Uo61hUmuPUcz9NGmSkayFFoUipvggdaBgJsOcsSAE8d+9/Shsd8VF8SQMJPWhp3veYkJD91pUaXpKEM5T6IEHtAeiwwFzvTON9ZyFaWJXBh/AIJt+2BZnq6voOHGKVC/Ga8d2zGxfb4YDgrjClV4hFa4GH+sPWfZV8nRlu2VLtu8/FofZJS/sMBzTspugbhNYZjsJ4Ixig0tlGe1569L82vW4AjKpwl1Rhf5sFFYO8CDGHmGd8whVW03VCOHBzNm3JVFpYJWzFjOIxq7grjY1aZhsvorO1HRYA4wSDsOFab3/ytKtDVdC5K7kmG7qcrE2O+Q5oDLsqkbTXCxMrSRKGd03R0SB/qCBhoRLzpSjjOaodk/+gcaoTnpinpEgxR7ibk0hG/B7C5WuyXT3U2/yRVhq+FGYTtZihBCTw=
+  app: limitless-harbor-70489
+  on:
+    repo: lbox87/Character-Creator
