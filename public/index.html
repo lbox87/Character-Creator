@@ -20,7 +20,7 @@
 
    <!-- jQuery and js scripts -->
    <script src="https://code.jquery.com/jquery.min.js"></script>
-   <script src="script.js"></script>
+   <script src="client.js"></script>
  </head>
  
  <body>
@@ -40,13 +40,13 @@
                 <input type="password" placeholder="Repeat Password" name="psw-repeat" required> -->
             
                 <label>
-                  <input type="checkbox" name="sign-up" style="margin-bottom:15px"> I don't have an account.
+                  <input type="checkbox" name="sign-up" style="margin-bottom:15px" id="js-account-check"> I don't have an account.
                 </label>
                       
                 <div class="clearfix">
                   <button type="button" class="cancelbtn">Cancel</button>
                   <button type="submit" class="signinbtn">Sign In</button>
-                  <button type="submit" class="signupbtn">Sign Up</button>
+                  <button type="submit" class="signupbtn hidden">Sign Up</button>
                 </div>
               </div>
             </form>
