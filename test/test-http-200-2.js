@@ -5,9 +5,12 @@ const chaiHttp = require('chai-http');
 // server.app, server.runServer, and server.closeServer
 const {app, runServer, closeServer} = require('../server');
 
-// declare a variable for expect from chai import
-const expect = chai.expect;
+// const server = require('../server')
+// const app = server.app;
+// const runServer = server.runServer;
+// const closeServer = server.closeServer;
 
+const expect = chai.expect;
 chai.use(chaiHttp);
 
 describe('statusCheck', function() {
