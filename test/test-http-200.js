@@ -23,13 +23,6 @@ describe('statusCheck', function () {
                 expect(err).to.be.null;
                 expect(res).to.have.status(200);
             });
-
-        // .then(function (res) {
-        //    expect(res).to.have.status(200);
-        // })
-        // .catch(function (err) {
-        //    throw err;
-        // });
      });
     }
 );

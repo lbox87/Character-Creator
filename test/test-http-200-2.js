@@ -3,12 +3,13 @@ const chaiHttp = require('chai-http');
 
 // Import server.js and use destructuring assignment to create variables for
 // server.app, server.runServer, and server.closeServer
-const {app, runServer, closeServer} = require('../server');
-
+// Below is what the deconstructing is the long version importing...
+// ...the app, runServer, and closeServer from server.js and defining them in this test
 // const server = require('../server')
 // const app = server.app;
 // const runServer = server.runServer;
 // const closeServer = server.closeServer;
+const {app, runServer, closeServer} = require('../server');
 
 const expect = chai.expect;
 chai.use(chaiHttp);

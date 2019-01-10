@@ -17,8 +17,6 @@ function runServer() {
   });
 }
 
-
-//... closeServer defined here
 function closeServer() {
     return new Promise((resolve, reject) => {
         server.close(err => {
@@ -31,7 +29,7 @@ function closeServer() {
 if (require.main === module) {
   runServer().catch(err => console.error(err));
 };
-
-
-
+// export defined variables and functions to be used elsewhere
+// this syntax is an object that actually returns:
+// {app: app, runServer: runServer, closeServer: closeServer}
 module.exports = { app, runServer, closeServer }
