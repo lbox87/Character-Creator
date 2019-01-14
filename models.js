@@ -28,17 +28,16 @@ const characterSchema = mongoose.Schema({
 // this is an *instance method* which will be available on all instances
 // of the model. This method will be used to return an object that only
 // exposes *some* of the fields we want from the underlying data
-// characterSchema.methods.serialize = function() {
-
-//   return {
-//     id: this._id,
-//     name: this.name,
-//     cuisine: this.cuisine,
-//     borough: this.borough,
-//     grade: this.grade,
-//     address: this.addressString
-//   };
-// };
+characterSchema.methods.serialize = function() {
+  return {
+    id: this._id,
+    name: this.name,
+    race: this.race,
+    class: this.class,
+    level: this.level,
+    alignment: this.alignment
+  };
+};
 
 // note that all instance methods and virtual properties on our
 // schema must be defined *before* we make the call to `.model`.
