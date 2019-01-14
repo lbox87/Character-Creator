@@ -42,6 +42,6 @@ const characterSchema = mongoose.Schema({
 
 // note that all instance methods and virtual properties on our
 // schema must be defined *before* we make the call to `.model`.
-const Restaurant = mongoose.model('Character', characterSchema);
+const Character = mongoose.model('Character', characterSchema);
 
-module.exports = {Restaurant};
+module.exports = {Character};
