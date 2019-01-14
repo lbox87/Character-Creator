@@ -2,6 +2,12 @@ const express = require('express');
 const app = express();
 app.use(express.static('public'));
 
+
+const mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
+const { PORT, DATABASE_URL } = require('./config');
+const { Restaurant } = require('./models');
+
 let server;
 
 function runServer() {
