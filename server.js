@@ -9,10 +9,6 @@ mongoose.Promise = global.Promise;
 const { PORT, DATABASE_URL } = require('./config');
 const { Character } = require('./models');
 
-
-
-
-
 let server;
 
 function runServer() {
