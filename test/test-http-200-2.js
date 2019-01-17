@@ -1,6 +1,6 @@
 const chai = require('chai');
 const chaiHttp = require('chai-http');
-
+const { PORT, DATABASE_URL } = require('../config');
 // Import server.js and use destructuring assignment to create variables for
 // server.app, server.runServer, and server.closeServer
 // Below is what the deconstructing is the long version importing...
@@ -21,7 +21,7 @@ describe('statusCheck', function() {
   // there's a possibility of a race condition where our tests start
   // running before our server has started.
   before(function() {
-    return runServer();
+    return runServer(DATABASE_URL);
   });
 
   // Close server after these tests run in case
