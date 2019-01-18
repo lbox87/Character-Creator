@@ -23,7 +23,6 @@ describe('statusCheck', function() {
   before(function() {
     return runServer(DATABASE_URL);
   });
-
   // Close server after these tests run in case
   // we have other test modules that need to 
   // call `runServer`. If server is already running,
