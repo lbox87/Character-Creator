@@ -1,6 +1,8 @@
 'use strict';
 
 const mongoose = require('mongoose');
+const { PORT, DATABASE_URL } = require('./config');
+mongoose.connect(DATABASE_URL, {useNewUrlParser: true});
 
 // this is our schema to represent a character
 const characterSchema = mongoose.Schema({
