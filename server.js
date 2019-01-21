@@ -15,9 +15,10 @@ app.get('/characters', (req, res) => {
     .find()
     .limit(10)   
     .then(characters => {
+      console.log(characters);
       res.json({
         characters: characters.map(
-          (characters) => characters.serialize())
+          (character) => character.serialize())
       });
     })
     .catch(err => {
@@ -28,7 +29,7 @@ app.get('/characters', (req, res) => {
 
 // can also request by ID
 app.get('/characters/:id', (req, res) => {
-  Restaurant
+  Character
     // this is a convenience method Mongoose provides for searching
     // by the object _id property
     .findById(req.params.id)
