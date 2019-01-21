@@ -10,7 +10,7 @@ const { PORT, DATABASE_URL } = require('./config');
 const { Character } = require('./models');
 // ---------------------------------------------------
 // GET requests to /characters => return 10 characters
-app.get('/', (req, res) => {
+app.get('/characters', (req, res) => {
   Character
     .find()
     .limit(10)   
