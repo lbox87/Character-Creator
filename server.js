@@ -16,7 +16,8 @@ app.get('/characters', (req, res) => {
     .limit(10)   
     .then(characters => {
       res.json({
-        "key": "value"
+        characters: characters.map(
+          (characters) => characters.serialize())
       });
     })
     .catch(err => {
