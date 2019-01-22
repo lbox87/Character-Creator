@@ -1,25 +1,27 @@
 // toggle whether sign in or sign up
-function newAccountToggle() {
-    $('#js-account-check').change(event => {
-        if ( $('#js-account-check').prop('checked') ) {
-            $('.signupbtn').removeClass('hidden');
-            $('.signinbtn').addClass('hidden');
-        } 
-        else {
-            $('.signinbtn').removeClass('hidden');
-            $('.signupbtn').addClass('hidden');
-        }
-    });
-}
+// function newAccountToggle() {
+//     $('#js-account-check').change(event => {
+//         if ( $('#js-account-check').prop('checked') ) {
+//             $('.signupbtn').removeClass('hidden');
+//             $('.signinbtn').addClass('hidden');
+//         } 
+//         else {
+//             $('.signinbtn').removeClass('hidden');
+//             $('.signupbtn').addClass('hidden');
+//         }
+//     });
+// }
 
-function signInButton(){
+// function signInButton(){
     
-}
+// }
 
-function signUpButton(){
+// function signUpButton(){
 
-}
+// }
 
+
+// GET request for characters
 function viewAllCharacters(){
     $('.view-all').click(event => {
         event.preventDefault();
@@ -35,6 +37,25 @@ function getCharacters(){
     });
 }
 
+function newCharacterSubmitted() {
+    $('.create-character').submit(event => {
+        event.preventDefault();
+        console.log(`new character is running`);
+        const submittedName = $('.character-name').val();
+        const submittedRace = $('.character-race').val();
+        const submittedClass = $('.character-class').val();
+        const submittedLevel = $('.character-level').val();
+        const submittedAlignment = $('.character-alignment').val();
+        const submittedCharacter = {
+           "name": `"${submittedName}"`, 
+           "race": `"${submittedRace}"`,
+           "class": `"${submittedClass}"`,
+           "level": `"${submittedLevel}"`,
+           "alignment": `"${submittedAlignment}"`
+        };
+        console.log(`submitted is ${submittedCharacter}`);
+    });
+}
 
 // -------------------
 // client-side js
@@ -54,8 +75,9 @@ function getCharacters(){
 // });
 // ---------------------
 function docReady() {
-    newAccountToggle();
+    // newAccountToggle();
     viewAllCharacters();
+    newCharacterSubmitted();
 }
 
 $(docReady);
