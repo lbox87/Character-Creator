@@ -19,25 +19,43 @@ function signInButton(){
 function signUpButton(){
 
 }
-// -------------------
-// client-side js
-function getCount() {
-    $.get('/the-count', function (data) {
-        $('.js-current-count').text(data.count);
+
+function viewAllCharacters(){
+    $('.view-all').click(event => {
+        event.preventDefault();
+        console.log(`view all is running`);
+        getCharacters();
     });
 }
 
-$(function () {
-    getCount();
-    $('form').submit(function (event) {
-        event.preventDefault();
-        getCount();
+function getCharacters(){
+    $.get('/characters', function(data) {
+        console.log(data);
+        displayCharacters(data);
     });
+}
 
-});
+
+// -------------------
+// client-side js
+// function getCount() {
+//     $.get('/the-count', function (data) {
+//         $('.js-current-count').text(data.count);
+//     });
+// }
+
+// $(function () {
+//     getCount();
+//     $('form').submit(function (event) {
+//         event.preventDefault();
+//         getCount();
+//     });
+
+// });
 // ---------------------
 function docReady() {
     newAccountToggle();
+    viewAllCharacters();
 }
 
 $(docReady);
