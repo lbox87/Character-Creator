@@ -1,3 +1,5 @@
+import { request } from "http";
+
 // toggle whether sign in or sign up
 // function newAccountToggle() {
 //     $('#js-account-check').change(event => {
@@ -37,43 +39,28 @@ function getCharacters(){
     });
 }
 
+// store submitted character
 function newCharacterSubmitted() {
     $('.create-character').submit(event => {
         event.preventDefault();
         console.log(`new character is running`);
-        const submittedName = $('.character-name').val();
-        const submittedRace = $('.character-race').val();
-        const submittedClass = $('.character-class').val();
-        const submittedLevel = $('.character-level').val();
-        const submittedAlignment = $('.character-alignment').val();
-        const submittedCharacter = {
-           "name": `"${submittedName}"`, 
-           "race": `"${submittedRace}"`,
-           "class": `"${submittedClass}"`,
-           "level": `"${submittedLevel}"`,
-           "alignment": `"${submittedAlignment}"`
-        };
-        console.log(`submitted is ${submittedCharacter}`);
+        let submittedCharacter = {};
+        submittedCharacter["\"name\""] = $('.character-name').val();
+        submittedCharacter["\"race\""] = $('.character-race').val();
+        submittedCharacter["\"class\""] = $('.character-class').val();
+        submittedCharacter["\"level\""] = $('.character-level').val();
+        submittedCharacter["\"alignment\""] = $('.character-alignment').val();
+        console.log(submittedCharacter);
+        return submittedCharacter;
     });
 }
 
-// -------------------
-// client-side js
-// function getCount() {
-//     $.get('/the-count', function (data) {
-//         $('.js-current-count').text(data.count);
-//     });
-// }
+function addCharacter(){
+    $.post('/characters', function(data) {
+        console.log(data);
+    });
+}
 
-// $(function () {
-//     getCount();
-//     $('form').submit(function (event) {
-//         event.preventDefault();
-//         getCount();
-//     });
-
-// });
-// ---------------------
 function docReady() {
     // newAccountToggle();
     viewAllCharacters();
