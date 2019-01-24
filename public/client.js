@@ -27,15 +27,7 @@
 function getCharacters() {
     $('.view-all').click(event => {
         event.preventDefault();
-        console.log(`view all is running`);
-        // $.get('/characters', function (data) {
-        //     console.log(data);
-        //     displayCharacters(data);
-        // });
-        fetch('/characters', {
-            method: "GET",
-            headers: { "Content-Type": "application/json" },
-        })
+        fetch('/characters')
             .then(response => {
                 if (response.ok) {
                     return response.json();
