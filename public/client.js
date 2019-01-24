@@ -46,8 +46,8 @@ function getCharacters() {
 
 function displayCharacters(data) {
     for (index in data.characters) {
-        $('ul').append(
-            '<li>' +
+        $('.list-characters').append(
+            `<li id=\"${data.characters[index].id}\">` +
             data.characters[index].name + " the level " +
             data.characters[index].level + " " +
             data.characters[index].alignment + " " +
@@ -56,10 +56,6 @@ function displayCharacters(data) {
             '</li>');
     }
 }
-
-// function getCharacters() {
-
-// }
 
 // store submitted character
 function newCharacterSubmitted() {
@@ -86,13 +82,20 @@ function newCharacterSubmitted() {
     });
 }
 
-// function addCharacter(){
-//     $.post('/characters', newCharacterSubmitted()
-// }
+function characterClicked(){
+    $('.list-characters').on('click', 'li', event => {
+        console.log(`endpoint is /characters/${event.target.id}`);
+        // let characterDelete = {
+        //     id = `${event.target.id}`
+        // }
+});
+}
 
-// function editSubmitted(){
-
-// }
+// fetch(`/characters/${event.target.id}`, {
+//     method: "DELETE",
+//     body: JSON.stringify(characterDelete),
+//     headers: { "Content-Type": "application/json" },
+// });
 
 // function editCharacter(){
 //     $.put('/characters/:id', function(data) {
@@ -114,6 +117,7 @@ function docReady() {
     // newAccountToggle();
     getCharacters();
     newCharacterSubmitted();
+    characterClicked();
 }
 
 $(docReady);
