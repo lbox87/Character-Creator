@@ -61,6 +61,26 @@ function addCharacter(){
     });
 }
 
+function editSubmitted(){
+
+}
+
+function editCharacter(){
+    $.put('/characters/:id', function(data) {
+        console.log(data);
+    });
+}
+
+function deleteSubmitted(){
+    
+}
+
+function deleteCharacter(){
+    $.delete('/characters/:id', function(data) {
+        console.log(data);
+    });
+}
+
 function docReady() {
     // newAccountToggle();
     viewAllCharacters();
