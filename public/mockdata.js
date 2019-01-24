@@ -38,18 +38,7 @@ var currentCharacters = {
 
 // this function stays the same when we connect
 // to real API later
-function displayCharacters(data) {
-    for (index in data.characters) {
-       $('ul').append(
-        '<li>' + 
-        data.characters[index].name + " the level " +
-        data.characters[index].level + " " +
-        data.characters[index].alignment + " " +
-        data.characters[index].race + " " +
-        data.characters[index].class + " " +
-        '</li>');
-    }
-}
+
 
 // this function can stay the same even when we
 // are connecting to real API

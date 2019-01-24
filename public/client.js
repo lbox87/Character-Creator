@@ -24,20 +24,50 @@
 
 
 // GET request for characters
-function viewAllCharacters() {
+function getCharacters() {
     $('.view-all').click(event => {
         event.preventDefault();
         console.log(`view all is running`);
-        getCharacters();
-    });
+        // $.get('/characters', function (data) {
+        //     console.log(data);
+        //     displayCharacters(data);
+        // });
+        fetch('/characters', {
+            method: "GET",
+            headers: { "Content-Type": "application/json" },
+        })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                }
+                // console.log(response);
+                // if (response.statusText == "") {
+                //     throw new Error("Try Again");
+                // }
+                // throw new Error(response.statusText);
+            })
+            .then(response => {
+                console.log(response);
+                displayCharacters(response);})
+    })
 }
 
-function getCharacters() {
-    $.get('/characters', function (data) {
-        console.log(data);
-        displayCharacters(data);
-    });
+function displayCharacters(data) {
+    for (index in data.characters) {
+        $('ul').append(
+            '<li>' +
+            data.characters[index].name + " the level " +
+            data.characters[index].level + " " +
+            data.characters[index].alignment + " " +
+            data.characters[index].race + " " +
+            data.characters[index].class + " " +
+            '</li>');
+    }
 }
+
+// function getCharacters() {
+
+// }
 
 // store submitted character
 function newCharacterSubmitted() {
@@ -57,10 +87,9 @@ function newCharacterSubmitted() {
         // })
         console.log(JSON.stringify(submittedCharacter));
         fetch('/characters', {
-            method: "POST", body: JSON.stringify(submittedCharacter), headers: {
-                "Content-Type": "application/json",
-                // "Content-Type": "application/x-www-form-urlencoded",
-            },
+            method: "POST",
+            body: JSON.stringify(submittedCharacter),
+            headers: { "Content-Type": "application/json" },
         })
     });
 }
@@ -91,7 +120,7 @@ function newCharacterSubmitted() {
 
 function docReady() {
     // newAccountToggle();
-    viewAllCharacters();
+    getCharacters();
     newCharacterSubmitted();
 }
 
