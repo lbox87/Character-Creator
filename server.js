@@ -42,7 +42,7 @@ app.get('/characters/:id', (req, res) => {
 
 
 app.post('/characters', (req, res) => {
-
+  console.log(req);
   const requiredFields = ['name', 'race', 'class'];
   for (let i = 0; i < requiredFields.length; i++) {
     const field = requiredFields[i];

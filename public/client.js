@@ -1,4 +1,4 @@
-import { request } from "http";
+// import { request } from "http";
 
 // toggle whether sign in or sign up
 // function newAccountToggle() {
@@ -15,7 +15,7 @@ import { request } from "http";
 // }
 
 // function signInButton(){
-    
+
 // }
 
 // function signUpButton(){
@@ -24,7 +24,7 @@ import { request } from "http";
 
 
 // GET request for characters
-function viewAllCharacters(){
+function viewAllCharacters() {
     $('.view-all').click(event => {
         event.preventDefault();
         console.log(`view all is running`);
@@ -32,8 +32,8 @@ function viewAllCharacters(){
     });
 }
 
-function getCharacters(){
-    $.get('/characters', function(data) {
+function getCharacters() {
+    $.get('/characters', function (data) {
         console.log(data);
         displayCharacters(data);
     });
@@ -45,41 +45,49 @@ function newCharacterSubmitted() {
         event.preventDefault();
         console.log(`new character is running`);
         let submittedCharacter = {};
-        submittedCharacter["\"name\""] = $('.character-name').val();
-        submittedCharacter["\"race\""] = $('.character-race').val();
-        submittedCharacter["\"class\""] = $('.character-class').val();
-        submittedCharacter["\"level\""] = $('.character-level').val();
-        submittedCharacter["\"alignment\""] = $('.character-alignment').val();
+        submittedCharacter["name"] = $('.character-name').val();
+        submittedCharacter["race"] = $('.character-race').val();
+        submittedCharacter["class"] = $('.character-class').val();
+        submittedCharacter["level"] = $('.character-level').val();
+        submittedCharacter["alignment"] = $('.character-alignment').val();
         console.log(submittedCharacter);
-        return submittedCharacter;
+        // return submittedCharacter;
+        // $.post('/characters', submittedCharacter, function(data) {
+        //     console.log('submit');
+        // })
+        console.log(JSON.stringify(submittedCharacter));
+        fetch('/characters', {
+            method: "POST", body: JSON.stringify(submittedCharacter), headers: {
+                "Content-Type": "application/json",
+                // "Content-Type": "application/x-www-form-urlencoded",
+            },
+        })
     });
 }
 
-function addCharacter(){
-    $.post('/characters', function(data) {
-        console.log(data);
-    });
-}
+// function addCharacter(){
+//     $.post('/characters', newCharacterSubmitted()
+// }
 
-function editSubmitted(){
+// function editSubmitted(){
 
-}
+// }
 
-function editCharacter(){
-    $.put('/characters/:id', function(data) {
-        console.log(data);
-    });
-}
+// function editCharacter(){
+//     $.put('/characters/:id', function(data) {
+//         console.log(data);
+//     });
+// }
 
-function deleteSubmitted(){
-    
-}
+// function deleteSubmitted(){
 
-function deleteCharacter(){
-    $.delete('/characters/:id', function(data) {
-        console.log(data);
-    });
-}
+// }
+
+// function deleteCharacter(){
+//     $.delete('/characters/:id', function(data) {
+//         console.log(data);
+//     });
+// }
 
 function docReady() {
     // newAccountToggle();
