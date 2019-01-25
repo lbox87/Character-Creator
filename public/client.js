@@ -1,28 +1,3 @@
-// import { request } from "http";
-
-// toggle whether sign in or sign up
-// function newAccountToggle() {
-//     $('#js-account-check').change(event => {
-//         if ( $('#js-account-check').prop('checked') ) {
-//             $('.signupbtn').removeClass('hidden');
-//             $('.signinbtn').addClass('hidden');
-//         } 
-//         else {
-//             $('.signinbtn').removeClass('hidden');
-//             $('.signupbtn').addClass('hidden');
-//         }
-//     });
-// }
-
-// function signInButton(){
-
-// }
-
-// function signUpButton(){
-
-// }
-
-
 // GET request for characters
 function getCharacters() {
     $('.view-all').click(event => {
@@ -82,13 +57,13 @@ function newCharacterSubmitted() {
     });
 }
 
-function characterClicked(){
+function characterClicked() {
     $('.list-characters').on('click', 'li', event => {
         console.log(`endpoint is /characters/${event.target.id}`);
         // let characterDelete = {
         //     id = `${event.target.id}`
         // }
-});
+    });
 }
 
 // fetch(`/characters/${event.target.id}`, {
