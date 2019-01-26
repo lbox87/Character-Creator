@@ -13,7 +13,7 @@ const { Character } = require('./models');
 app.get('/characters', (req, res) => {
   Character
     .find()
-    .limit(10)   
+    // .limit(10)   
     .then(characters => {
       console.log(characters);
       res.json({
@@ -42,7 +42,7 @@ app.get('/characters/:id', (req, res) => {
 
 
 app.post('/characters', (req, res) => {
-
+  console.log(req);
   const requiredFields = ['name', 'race', 'class'];
   for (let i = 0; i < requiredFields.length; i++) {
     const field = requiredFields[i];

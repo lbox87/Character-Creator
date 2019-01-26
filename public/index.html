@@ -1,62 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
-   <meta charset="utf-8">
-   <meta name="Character Creator" content="Character Creator">
-  
-   <title></title>   
 
-   <!-- stylesheets -->
-   <link href="float-grid.css" rel="stylesheet">
-   <link href="style.css" rel="stylesheet">
+<head>
+  <meta charset="utf-8">
+  <meta name="Character Creator" content="Character Creator">
 
-   <!-- normalize -->
-   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
+  <title></title>
 
-   <!-- font -->
+  <!-- stylesheets -->
+  <link href="float-grid.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
 
-   <!-- responsive viewport -->
-   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- normalize -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
 
-   <!-- jQuery and js scripts -->
-   <script src="https://code.jquery.com/jquery.min.js"></script>
-   <script src="client.js"></script>
-   <script src="mockdata.js"></script>
- </head>
- 
- <body>
-   <header role="banner">Character Creator
-   </header>
-   <main role="main">
-        <div class="sign-container">
-                <h1>Sign In/Up</h1>
+  <!-- font -->
+
+  <!-- responsive viewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- jQuery and js scripts -->
+  <script src="https://code.jquery.com/jquery.min.js"></script>
+  <script src="client.js"></script>
+  <script src="mockdata.js"></script>
+</head>
+
+<body>
+  <header role="banner">Character Creator
+  </header>
+  <main role="main">
+    <!-- <div class="sign-container"> -->
+    <!-- <h1>Sign In/Up</h1>
             
                 <label for="email"><b>Email</b></label>
                 <input type="text" placeholder="Enter Email" name="email" required>
             
                 <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required>
-            
-                <!-- <label for="psw-repeat"><b>Repeat Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required> -->
+
+    <!-- <label for="psw-repeat"><b>Repeat Password</b></label>
                 <input type="password" placeholder="Repeat Password" name="psw-repeat" required> -->
-            
-                <label>
+
+    <!-- <label>
                   <input type="checkbox" name="sign-up" style="margin-bottom:15px" id="js-account-check"> I don't have an account.
-                </label>
-                      
-                <div class="clearfix">
-                  <!-- <button type="button" class="cancelbtn">Cancel</button> -->
-                  <button type="submit" class="signinbtn">Sign In</button>
+                </label> -->
+
+    <!-- <div class="clearfix"> -->
+    <!-- <button type="button" class="cancelbtn">Cancel</button> -->
+    <!-- <button type="submit" class="signinbtn">Sign In</button>
                   <button type="submit" class="signupbtn hidden">Sign Up</button>
                 </div>
               </div>
-            </form>
+            </form> -->
 
-            <button type="button" class="create">Create a New Character</button>
-            <button type="button" class="view-all">View All Characters</button>
-            <ul><h2>My Recent Characters</h2>
+    <form class="create-character">
+      <label for="name"><b>Name</b></label>
+      <input type="text" placeholder="John Doe" name="character-name" class="character-name" required>
 
-            </ul>
-   </main>
- </body>
+      <label for="race"><b>Race</b></label>
+      <input type="text" placeholder="Human, Elf, Half-Orc, etc." name="character-race" class="character-race" required>
+
+      <label for="class"><b>Class</b></label>
+      <input type="text" placeholder="Warrior, Wizard, etc." name="character-class" class="character-class" required>
+
+      <label for="level"><b>Level</b></label>
+      <input type="number" placeholder="1" name="character-level" class="character-level" required>
+
+      <label for="alignment"><b>Alignment</b></label>
+      <input type="text" placeholder="Lawful Good,etc." name="character-alignment" class="character-alignment" required>
+
+      <button type="submit">Create a New Character</button>
+    </form>
+
+
+    <button type="button" class="view-all">View All Characters</button>
+   
+    <ul class="list-characters">
+      <h2>My Recent Characters</h2>
+    </ul>
+
+    <form class="hidden character-edit">
+      <label for="name"><b>Name</b></label>
+      <input type="text" placeholder="John Doe" name="character-name" class="edit-character-name" required>
+
+      <label for="race"><b>Race</b></label>
+      <input type="text" placeholder="Human, Elf, Half-Orc, etc." name="character-race" class="edit-character-race" required>
+
+      <label for="class"><b>Class</b></label>
+      <input type="text" placeholder="Warrior, Wizard, etc." name="character-class" class="edit-character-class" required>
+
+      <label for="level"><b>Level</b></label>
+      <input type="number" placeholder="1" name="character-level" class="edit-character-level" required>
+
+      <label for="alignment"><b>Alignment</b></label>
+      <input type="text" placeholder="Lawful Good,etc." name="character-alignment" class="edit-character-alignment" required>
+
+      <button type="button" class="submit-changes">Submit Changes</button>
+      
+    </form>
+
+  </main>
+</body>
+
 </html>
