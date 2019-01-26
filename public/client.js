@@ -99,7 +99,7 @@ function displayEdits(data) {
 }
 
 function editCharacterSubmit(){
-    $('button.submit-changes').submit(event => {
+    $('.submit-changes').submit(event => {
         event.preventDefault();
         console.log(`submit changes is running`);
     });
