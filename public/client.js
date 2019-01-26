@@ -65,7 +65,7 @@ function newCharacterSubmitted() {
     
 }
 
-function characterClicked() {
+function deleteCharacter() {
     $('.list-characters').on('click', '.delete-character', event => {
         console.log(`endpoint is /characters/${event.target.id}`);
         let characterDelete = {
@@ -105,7 +105,7 @@ function docReady() {
     // newAccountToggle();
     getCharacters();
     newCharacterSubmitted();
-    characterClicked();
+    deleteCharacter();
 }
 
 $(docReady);
