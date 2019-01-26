@@ -13,7 +13,7 @@ const { Character } = require('./models');
 app.get('/characters', (req, res) => {
   Character
     .find()
-    .limit(10)   
+    // .limit(10)   
     .then(characters => {
       console.log(characters);
       res.json({

@@ -20,15 +20,19 @@ function getCharacters() {
 }
 
 function displayCharacters(data) {
+    $('.list-characters').empty();
     for (index in data.characters) {
         $('.list-characters').append(
-            `<li id=\"${data.characters[index].id}\">` +
+            '<li>' +
+            `<button type="button" class="edit-character" id=\"${data.characters[index].id}\">Edit Character</button>`+
+            `<button type="button" class="delete-character" id=\"${data.characters[index].id}\">Delete Character</button>`+
             data.characters[index].name + " the level " +
             data.characters[index].level + " " +
             data.characters[index].alignment + " " +
             data.characters[index].race + " " +
             data.characters[index].class + " " +
-            '</li>');
+            '</li>'
+            );
     }
 }
 
@@ -54,15 +58,24 @@ function newCharacterSubmitted() {
             body: JSON.stringify(submittedCharacter),
             headers: { "Content-Type": "application/json" },
         })
+        // .then(response => {
+        //     console.log(response);
+        //     displayCharacters(response);})
     });
+    
 }
 
 function characterClicked() {
-    $('.list-characters').on('click', 'li', event => {
+    $('.list-characters').on('click', '.delete-character', event => {
         console.log(`endpoint is /characters/${event.target.id}`);
-        // let characterDelete = {
-        //     id = `${event.target.id}`
-        // }
+        let characterDelete = {
+            id: `\"${event.target.id}\"`
+        };
+        fetch(`/characters/${event.target.id}`, {
+            method: "DELETE",
+            body: JSON.stringify(characterDelete),
+            headers: { "Content-Type": "application/json" },
+        })
     });
 }
 
