@@ -74,10 +74,30 @@
 
 
     <button type="button" class="view-all">View All Characters</button>
+   
     <ul class="list-characters">
       <h2>My Recent Characters</h2>
-
     </ul>
+
+    <form class="hidden character-edit">
+      <label for="name"><b>Name</b></label>
+      <input type="text" placeholder="John Doe" name="character-name" class="edit-character-name" required>
+
+      <label for="race"><b>Race</b></label>
+      <input type="text" placeholder="Human, Elf, Half-Orc, etc." name="character-race" class="edit-character-race" required>
+
+      <label for="class"><b>Class</b></label>
+      <input type="text" placeholder="Warrior, Wizard, etc." name="character-class" class="edit-character-class" required>
+
+      <label for="level"><b>Level</b></label>
+      <input type="number" placeholder="1" name="character-level" class="edit-character-level" required>
+
+      <label for="alignment"><b>Alignment</b></label>
+      <input type="text" placeholder="Lawful Good,etc." name="character-alignment" class="edit-character-alignment" required>
+
+      <button type="button" class="submit-changes">Submit Changes</button>
+    </form>
+
   </main>
 </body>
 

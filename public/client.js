@@ -41,18 +41,13 @@ function newCharacterSubmitted() {
     $('.create-character').submit(event => {
         event.preventDefault();
         console.log(`new character is running`);
-        let submittedCharacter = {};
-        submittedCharacter["name"] = $('.character-name').val();
-        submittedCharacter["race"] = $('.character-race').val();
-        submittedCharacter["class"] = $('.character-class').val();
-        submittedCharacter["level"] = $('.character-level').val();
-        submittedCharacter["alignment"] = $('.character-alignment').val();
-        console.log(submittedCharacter);
-        // return submittedCharacter;
-        // $.post('/characters', submittedCharacter, function(data) {
-        //     console.log('submit');
-        // })
-        console.log(JSON.stringify(submittedCharacter));
+        let submittedCharacter = {
+            name: $('.character-name').val(),
+            race: $('.character-race').val(),
+            class: $('.character-class').val(),
+            level: $('.character-level').val(),
+            alignment: $('.character-alignment').val()
+        };
         fetch('/characters', {
             method: "POST",
             body: JSON.stringify(submittedCharacter),
@@ -62,12 +57,57 @@ function newCharacterSubmitted() {
         //     console.log(response);
         //     displayCharacters(response);})
     });
-    
+}
+
+function editCharacterScreen() {
+    $('.list-characters').on('click', '.edit-character', event => {
+        console.log(`edit endpoint is /characters/${event.target.id}`);
+        $('.character-edit').removeClass('hidden');
+        fetch(`/characters/${event.target.id}`)
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+            // console.log(response);
+            // if (response.statusText == "") {
+            //     throw new Error("Try Again");
+            // }
+            // throw new Error(response.statusText);
+        })
+        .then(response => {
+            console.log(response);
+            displayEdits(response);
+        })
+        // let characterDelete = {
+        //     id: `\"${event.target.id}\"`
+        // };
+        // fetch(`/characters/${event.target.id}`, {
+        //     method: "DELETE",
+        //     body: JSON.stringify(characterDelete),
+        //     headers: { "Content-Type": "application/json" },
+        // })
+    });
+}
+
+function displayEdits(data) {
+    $('.edit-character-name').val(data.name);
+    $('.edit-character-level').val(data.level);
+    $('.edit-character-alignment').val(data.alignment);
+    $('.edit-character-race').val(data.race);
+    $('.edit-character-class').val(data.class);
+    $('.submit-changes').attr(`id`, data.id);
+}
+
+function editCharacterSubmit(){
+    $('button.submit-changes').submit(event => {
+        event.preventDefault();
+        console.log(`submit changes is running`);
+    });
 }
 
 function deleteCharacter() {
     $('.list-characters').on('click', '.delete-character', event => {
-        console.log(`endpoint is /characters/${event.target.id}`);
+        console.log(`delete endpoint is /characters/${event.target.id}`);
         let characterDelete = {
             id: `\"${event.target.id}\"`
         };
@@ -106,6 +146,8 @@ function docReady() {
     getCharacters();
     newCharacterSubmitted();
     deleteCharacter();
+    editCharacterScreen();
+    editCharacterSubmit();
 }
 
 $(docReady);
