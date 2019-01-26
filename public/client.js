@@ -99,9 +99,24 @@ function displayEdits(data) {
 }
 
 function editCharacterSubmit(){
-    $('.submit-changes').submit(event => {
+    $('.submit-changes').click(event => {
         event.preventDefault();
-        console.log(`submit changes is running`);
+        console.log(`submit changes is running and id is ${event.target.id}`);
+        let editedCharacter = {
+            id: event.target.id,
+            name: $('.edit-character-name').val(),
+            race: $('.edit-character-race').val(),
+            class: $('.edit-character-class').val(),
+            level: $('.edit-character-level').val(),
+            alignment: $('.edit-character-alignment').val()
+        };
+        $('.character-edit').addClass('hidden');
+        console.log(JSON.stringify(editedCharacter));
+        fetch(`/characters/${event.target.id}`, {
+            method: "PUT",
+            body: JSON.stringify(editedCharacter),
+            headers: { "Content-Type": "application/json" },
+        })
     });
 }
 
@@ -109,7 +124,7 @@ function deleteCharacter() {
     $('.list-characters').on('click', '.delete-character', event => {
         console.log(`delete endpoint is /characters/${event.target.id}`);
         let characterDelete = {
-            id: `\"${event.target.id}\"`
+            id: event.target.id
         };
         fetch(`/characters/${event.target.id}`, {
             method: "DELETE",
