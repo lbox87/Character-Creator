@@ -27,6 +27,23 @@ app.get('/characters', (req, res) => {
     });
 });
 
+app.get('/summary', (req, res) => {
+  Character
+    .find()
+    .limit(10)   
+    .then(characters => {
+      // console.log(characters);
+      res.json({
+        characters: characters.map(
+          (character) => character.serialize())
+      });
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({ message: 'Internal server error' });
+    });
+});
+
 // can also request by ID
 app.get('/characters/:id', (req, res) => {
   Character

@@ -1,8 +1,29 @@
-// GET request for characters
+function loadCharacters() {
+    fetch('/characters')
+    .then(response => {
+        if (response.ok) {
+            return response.json();
+        }
+        // console.log(response);
+        // if (response.statusText == "") {
+        //     throw new Error("Try Again");
+        // }
+        // throw new Error(response.statusText);
+    })
+    .then(response => {
+        console.log(response);
+        displayCharacters(response);})
+}
+
 function getCharacters() {
     $('.view-all').click(event => {
         event.preventDefault();
-        fetch('/characters')
+        loadCharacters();
+    })
+}
+
+function getInitialCharacters(){
+    fetch('/summary')
             .then(response => {
                 if (response.ok) {
                     return response.json();
@@ -16,7 +37,6 @@ function getCharacters() {
             .then(response => {
                 console.log(response);
                 displayCharacters(response);})
-    })
 }
 
 function displayCharacters(data) {
@@ -56,6 +76,7 @@ function newCharacterSubmitted() {
         // .then(response => {
         //     console.log(response);
         //     displayCharacters(response);})
+        loadCharacters();
     });
 }
 
@@ -78,14 +99,6 @@ function editCharacterScreen() {
             console.log(response);
             displayEdits(response);
         })
-        // let characterDelete = {
-        //     id: `\"${event.target.id}\"`
-        // };
-        // fetch(`/characters/${event.target.id}`, {
-        //     method: "DELETE",
-        //     body: JSON.stringify(characterDelete),
-        //     headers: { "Content-Type": "application/json" },
-        // })
     });
 }
 
@@ -117,6 +130,7 @@ function editCharacterSubmit(){
             body: JSON.stringify(editedCharacter),
             headers: { "Content-Type": "application/json" },
         })
+        loadCharacters();
     });
 }
 
@@ -131,43 +145,17 @@ function deleteCharacter() {
             body: JSON.stringify(characterDelete),
             headers: { "Content-Type": "application/json" },
         })
+        loadCharacters();
     });
 }
 
-// fetch(`/characters/${event.target.id}`, {
-//     method: "DELETE",
-//     body: JSON.stringify(characterDelete),
-//     headers: { "Content-Type": "application/json" },
-// });
-
-// function editCharacter(){
-//     $.put('/characters/:id', function(data) {
-//         console.log(data);
-//     });
-// }
-
-// function deleteSubmitted(){
-
-// }
-
-// function deleteCharacter(){
-//     $.delete('/characters/:id', function(data) {
-//         console.log(data);
-//     });
-// }
-
-// function insertInitial(){
-//     fetch('/characters');
-// }
-
 function docReady() {
-    // newAccountToggle();
     getCharacters();
     newCharacterSubmitted();
     deleteCharacter();
     editCharacterScreen();
     editCharacterSubmit();
-    // insertInitial();
+    getInitialCharacters();
 }
 
 $(docReady);
