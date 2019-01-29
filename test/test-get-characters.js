@@ -1,6 +1,6 @@
 const chai = require('chai');
 const chaiHttp = require('chai-http');
-const { PORT, DATABASE_URL } = require('../config');
+const { PORT, DATABASE_URL, TEST_DATABASE_URL } = require('../config');
 const {app, runServer, closeServer} = require('../server');
 
 const expect = chai.expect;
@@ -20,7 +20,7 @@ const badPass = {
 
 describe('crudTest', function() {
   before(function() {
-    return runServer(DATABASE_URL);
+    return runServer(TEST_DATABASE_URL);
   });
 
   after(function() {
