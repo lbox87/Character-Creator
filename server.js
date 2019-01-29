@@ -15,7 +15,7 @@ app.get('/characters', (req, res) => {
     .find()
     // .limit(10)   
     .then(characters => {
-      console.log(characters);
+      // console.log(characters);
       res.json({
         characters: characters.map(
           (character) => character.serialize())
@@ -42,7 +42,7 @@ app.get('/characters/:id', (req, res) => {
 
 
 app.post('/characters', (req, res) => {
-  console.log(req);
+  // console.log(req);
   const requiredFields = ['name', 'race', 'class'];
   for (let i = 0; i < requiredFields.length; i++) {
     const field = requiredFields[i];
@@ -157,4 +157,3 @@ if (require.main === module) {
 // this syntax is an object that actually returns:
 // {app: app, runServer: runServer, closeServer: closeServer}
 module.exports = { app, runServer, closeServer }
-module.exports = { }

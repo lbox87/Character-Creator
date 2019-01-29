@@ -156,6 +156,10 @@ function deleteCharacter() {
 //     });
 // }
 
+// function insertInitial(){
+//     fetch('/characters');
+// }
+
 function docReady() {
     // newAccountToggle();
     getCharacters();
@@ -163,6 +167,7 @@ function docReady() {
     deleteCharacter();
     editCharacterScreen();
     editCharacterSubmit();
+    // insertInitial();
 }
 
 $(docReady);
