@@ -14,7 +14,7 @@ const {app, runServer, closeServer} = require('../server');
 const expect = chai.expect;
 chai.use(chaiHttp);
 
-describe('statusCheck', function() {
+describe('Test Initial Page Load', function() {
   // Before our tests run, we activate the server. Our `runServer`
   // function returns a promise, and we return the promise by
   // doing `return runServer`. If we didn't return a promise here,

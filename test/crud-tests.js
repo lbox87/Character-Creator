@@ -18,9 +18,9 @@ const badPass = {
   name: "test"
 };
 
-describe('crudTest', function() {
+describe('Test CRUD Functions', function() {
   before(function() {
-    return runServer(TEST_DATABASE_URL);
+    return runServer(DATABASE_URL);
   });
 
   after(function() {
