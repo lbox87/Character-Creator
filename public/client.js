@@ -92,6 +92,7 @@ function newCharacterSubmitted() {
         //     console.log(response);
         //     displayCharacters(response);})
         loadCharacters();
+        clearEdits();
     });
 }
 
@@ -148,11 +149,11 @@ function editCharacterSubmit(){
         })
         loadCharacters();
         clearEdits();
+        $('.edit-who').html('').addClass('hidden');
     });
 }
 
 function clearEdits() {
-    $('.edit-who').html('').addClass('hidden');
     $('.character-name').val('');
     $('.character-level').val('');
     $('.character-alignment').val('');
