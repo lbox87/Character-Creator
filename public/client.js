@@ -58,8 +58,8 @@ function displayCharacters(data) {
         $('.list-characters').append(
             '<li class="col-12">' +
             // '<div class="buttons">' +
-            `<button type="button" class="col-3 edit-character" id=\"${data.characters[index].id}\">Edit Character</button>`+
-            `<button type="button" class="col-3 delete-character" id=\"${data.characters[index].id}\">Delete Character</button>`+
+            `<button type="button" class="edit-character" id=\"${data.characters[index].id}\">Edit Character</button>`+
+            `<button type="button" class="delete-character" id=\"${data.characters[index].id}\">Delete Character</button>`+
             // '</div>' +
             data.characters[index].name + " the level " +
             data.characters[index].level + " " +

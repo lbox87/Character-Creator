@@ -20,6 +20,6 @@ label {
     text-align: left;
 }
 
-/* button {
-    margin-left: 10px;
-} */
+button {
+    width: 189px;
+}
