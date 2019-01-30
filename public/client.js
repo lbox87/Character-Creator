@@ -18,11 +18,24 @@ function loadCharacters() {
 function getCharacters() {
     $('.view-all').click(event => {
         event.preventDefault();
+        $('.view-fewer').removeClass('hidden');
+        $('.view-all').addClass('hidden');
         loadCharacters();
+        $('.character-number').html("Displaying all characters.");
+    })
+}
+
+function getFewerCharacters() {
+    $('.view-fewer').click(event => {
+        $('.view-all').removeClass('hidden');
+        $('.view-fewer').addClass('hidden');
+        event.preventDefault();
+        getInitialCharacters();
     })
 }
 
 function getInitialCharacters(){
+    $('.character-number').html("Displaying ten oldest characters.");
     fetch('/summary')
             .then(response => {
                 if (response.ok) {
@@ -43,9 +56,11 @@ function displayCharacters(data) {
     $('.list-characters').empty();
     for (index in data.characters) {
         $('.list-characters').append(
-            '<li>' +
-            `<button type="button" class="edit-character" id=\"${data.characters[index].id}\">Edit Character</button>`+
-            `<button type="button" class="delete-character" id=\"${data.characters[index].id}\">Delete Character</button>`+
+            '<li class="col-12">' +
+            // '<div class="buttons">' +
+            `<button type="button" class="col-3 edit-character" id=\"${data.characters[index].id}\">Edit Character</button>`+
+            `<button type="button" class="col-3 delete-character" id=\"${data.characters[index].id}\">Delete Character</button>`+
+            // '</div>' +
             data.characters[index].name + " the level " +
             data.characters[index].level + " " +
             data.characters[index].alignment + " " +
@@ -151,6 +166,7 @@ function deleteCharacter() {
 
 function docReady() {
     getCharacters();
+    getFewerCharacters();
     newCharacterSubmitted();
     deleteCharacter();
     editCharacterScreen();
