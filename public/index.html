@@ -29,75 +29,52 @@
   <header role="banner">Character Creator
   </header>
   <main role="main">
-    <!-- <div class="sign-container"> -->
-    <!-- <h1>Sign In/Up</h1>
-            
-                <label for="email"><b>Email</b></label>
-                <input type="text" placeholder="Enter Email" name="email" required>
-            
-                <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required> -->
 
-    <!-- <label for="psw-repeat"><b>Repeat Password</b></label>
-                <input type="password" placeholder="Repeat Password" name="psw-repeat" required> -->
-
-    <!-- <label>
-                  <input type="checkbox" name="sign-up" style="margin-bottom:15px" id="js-account-check"> I don't have an account.
-                </label> -->
-
-    <!-- <div class="clearfix"> -->
-    <!-- <button type="button" class="cancelbtn">Cancel</button> -->
-    <!-- <button type="submit" class="signinbtn">Sign In</button>
-                  <button type="submit" class="signupbtn hidden">Sign Up</button>
-                </div>
-              </div>
-            </form> -->
-
-    <form class="create-character">
+    <div class="row center">
+    <form class="col-12 create-character ">
       <label for="name"><b>Name</b></label>
       <input type="text" placeholder="John Doe" name="character-name" class="character-name" required>
-
+      <br>
       <label for="race"><b>Race</b></label>
       <input type="text" placeholder="Human, Elf, Half-Orc, etc." name="character-race" class="character-race" required>
-
+      <br>
       <label for="class"><b>Class</b></label>
       <input type="text" placeholder="Warrior, Wizard, etc." name="character-class" class="character-class" required>
-
+      <br>
       <label for="level"><b>Level</b></label>
       <input type="number" placeholder="1" name="character-level" class="character-level" required>
-
+      <br>
       <label for="alignment"><b>Alignment</b></label>
       <input type="text" placeholder="Lawful Good,etc." name="character-alignment" class="character-alignment" required>
-
+      <br>
       <button type="submit">Create a New Character</button>
     </form>
-
+  </div>
+    <form class="hidden character-edit">
+      <label for="name"><b>Name</b></label>
+      <input type="text" placeholder="John Doe" name="character-name" class="edit-character-name" required>
+<br>
+      <label for="race"><b>Race</b></label>
+      <input type="text" placeholder="Human, Elf, Half-Orc, etc." name="character-race" class="edit-character-race" required>
+      <br>
+      <label for="class"><b>Class</b></label>
+      <input type="text" placeholder="Warrior, Wizard, etc." name="character-class" class="edit-character-class" required>
+      <br>
+      <label for="level"><b>Level</b></label>
+      <input type="number" placeholder="1" name="character-level" class="edit-character-level" required>
+      <br>
+      <label for="alignment"><b>Alignment</b></label>
+      <input type="text" placeholder="Lawful Good,etc." name="character-alignment" class="edit-character-alignment" required>
+      <br>
+      <button type="button" class="submit-changes">Submit Changes</button>
+      
+    </form>
 
     <button type="button" class="view-all">View All Characters</button>
    
     <ul class="list-characters">
       <h2>My Recent Characters</h2>
     </ul>
-
-    <form class="hidden character-edit">
-      <label for="name"><b>Name</b></label>
-      <input type="text" placeholder="John Doe" name="character-name" class="edit-character-name" required>
-
-      <label for="race"><b>Race</b></label>
-      <input type="text" placeholder="Human, Elf, Half-Orc, etc." name="character-race" class="edit-character-race" required>
-
-      <label for="class"><b>Class</b></label>
-      <input type="text" placeholder="Warrior, Wizard, etc." name="character-class" class="edit-character-class" required>
-
-      <label for="level"><b>Level</b></label>
-      <input type="number" placeholder="1" name="character-level" class="edit-character-level" required>
-
-      <label for="alignment"><b>Alignment</b></label>
-      <input type="text" placeholder="Lawful Good,etc." name="character-alignment" class="edit-character-alignment" required>
-
-      <button type="button" class="submit-changes">Submit Changes</button>
-      
-    </form>
 
   </main>
 </body>
