@@ -98,7 +98,7 @@ function newCharacterSubmitted() {
 function editCharacterScreen() {
     $('.list-characters').on('click', '.edit-character', event => {
         console.log(`edit endpoint is /characters/${event.target.id}`);
-        $('.character-edit').removeClass('hidden');
+        $('.submit-changes').removeClass('hidden');
         fetch(`/characters/${event.target.id}`)
         .then(response => {
             if (response.ok) {
@@ -118,11 +118,12 @@ function editCharacterScreen() {
 }
 
 function displayEdits(data) {
-    $('.edit-character-name').val(data.name);
-    $('.edit-character-level').val(data.level);
-    $('.edit-character-alignment').val(data.alignment);
-    $('.edit-character-race').val(data.race);
-    $('.edit-character-class').val(data.class);
+    $('.edit-who').html(`You are editing ${data.name}`).removeClass('hidden');
+    $('.character-name').val(data.name);
+    $('.character-level').val(data.level);
+    $('.character-alignment').val(data.alignment);
+    $('.character-race').val(data.race);
+    $('.character-class').val(data.class);
     $('.submit-changes').attr(`id`, data.id);
 }
 
@@ -132,13 +133,13 @@ function editCharacterSubmit(){
         console.log(`submit changes is running and id is ${event.target.id}`);
         let editedCharacter = {
             id: event.target.id,
-            name: $('.edit-character-name').val(),
-            race: $('.edit-character-race').val(),
-            class: $('.edit-character-class').val(),
-            level: $('.edit-character-level').val(),
-            alignment: $('.edit-character-alignment').val()
+            name: $('.character-name').val(),
+            race: $('.character-race').val(),
+            class: $('.character-class').val(),
+            level: $('.character-level').val(),
+            alignment: $('.character-alignment').val()
         };
-        $('.character-edit').addClass('hidden');
+        $('.submit-changes').addClass('hidden');
         console.log(JSON.stringify(editedCharacter));
         fetch(`/characters/${event.target.id}`, {
             method: "PUT",
@@ -146,7 +147,17 @@ function editCharacterSubmit(){
             headers: { "Content-Type": "application/json" },
         })
         loadCharacters();
+        clearEdits();
     });
+}
+
+function clearEdits() {
+    $('.edit-who').html('').addClass('hidden');
+    $('.character-name').val('');
+    $('.character-level').val('');
+    $('.character-alignment').val('');
+    $('.character-race').val('');
+    $('.character-class').val('');
 }
 
 function deleteCharacter() {
