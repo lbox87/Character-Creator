@@ -35,10 +35,10 @@ header {
 }
 
 .fixed-container {
-    top:80px;
+    top:50px;
     position: fixed;
     text-align: center;
-    height: 30%;
+    height: 25%;
     width: 100%;
     z-index:10;
     background-color: darkgrey;
@@ -50,6 +50,12 @@ header {
     margin-top: 20px;
     z-index:5;
     overflow:auto;
+}
+
+.shift-container, .fixed-container {
+    width: 100%;
+    left:50%;
+    transform: translate(-50%, 0);
 }
 
 ul {
