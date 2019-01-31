@@ -56,16 +56,20 @@ function displayCharacters(data) {
     $('.list-characters').empty();
     for (index in data.characters) {
         $('.list-characters').append(
-            '<li class="col-12">' +
+            '<li class="col-12 details">' +
             // '<div class="buttons">' +
-            `<button type="button" class="edit-character" id=\"${data.characters[index].id}\">Edit Character</button>`+
-            `<button type="button" class="delete-character" id=\"${data.characters[index].id}\">Delete Character</button>`+
+            '<span class="col-3">' +
+            `<button type="button" class="edit-character" id=\"${data.characters[index].id}\">Edit</button>`+
+            `<button type="button" class="delete-character" id=\"${data.characters[index].id}\">Delete</button>`+
+            '</span>' +
             // '</div>' +
+            '<span class="col-9">' +
             data.characters[index].name + " the level " +
             data.characters[index].level + " " +
             data.characters[index].alignment + " " +
             data.characters[index].race + " " +
             data.characters[index].class + " " +
+            '</span>' +
             '</li>'
             );
     }
