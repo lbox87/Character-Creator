@@ -18,22 +18,13 @@ const badPass = {
   name: "test"
 };
 
-describe('Test CRUD Functions', function() {
+describe('Test Create Functions', function() {
   before(function() {
-    return runServer(DATABASE_URL);
+    return runServer(TEST_DATABASE_URL);
   });
 
   after(function() {
     return closeServer();
-  });
-  
-  // requests to display characters
-  it('should have response status 200', function() {
-    return chai.request(app)
-      .get('/characters')
-      .then(function(res) {
-        expect(res).to.have.status(200);
-      });
   });
 
   // requests to create a correctly submitted character
@@ -56,5 +47,6 @@ describe('Test CRUD Functions', function() {
         expect(res).to.have.status(400);
       });
   });
+
 });
 
