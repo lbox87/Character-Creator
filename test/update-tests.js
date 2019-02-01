@@ -30,18 +30,16 @@ describe('Test Update Functions', function () {
 
   // requests to create a correctly submitted character
   it('should have response status 204', function () {
-    let id;
-    let goodParams = {
-      name: "test2",
-    }
-    chai.request(app).post('/characters').send(goodPass).then(function (res) {
-      id = res.id;
-      goodParams[_id] = id;
-    });
-    return chai.request(app).put('/characters' + id).send(goodParams).then(function (res) {
-      expect(res).to.have.status(204);
-    });
 
+    chai.request(app).post('/characters').send(goodPass).then(function (res) {
+      let goodParams = {
+        name: "test2",
+        id: res.id
+      }
+      return chai.request(app).put('/characters/' + res.id).send(goodParams).then(function (res) {
+        expect(res).to.have.status(204);
+      });
+    });
   });
 
 });
