@@ -3,7 +3,7 @@
 const mongoose = require('mongoose');
 const { PORT, DATABASE_URL } = require('./config');
 mongoose.connect(DATABASE_URL, {useNewUrlParser: true});
-
+require('dotenv').config();
 // this is our schema to represent a character
 const characterSchema = mongoose.Schema({
   name: {type: String, required: true},

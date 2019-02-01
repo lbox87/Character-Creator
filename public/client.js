@@ -176,7 +176,7 @@ function deleteCharacter() {
             body: JSON.stringify(characterDelete),
             headers: { "Content-Type": "application/json" },
         })
-        loadCharacters();
+        .then(loadCharacters);
     });
 }
 
