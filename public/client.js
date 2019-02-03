@@ -34,6 +34,10 @@ function getFewerCharacters() {
     })
 }
 
+// function viewToggle() {
+//     if (${'.view-toggle'}.val === )
+// }
+
 function getInitialCharacters(){
     $('.character-number').html("Displaying ten oldest characters.");
     fetch('/summary')
@@ -123,7 +127,8 @@ function editCharacterScreen() {
 }
 
 function displayEdits(data) {
-    $('.edit-who').html(`You are editing ${data.name}`).removeClass('hidden');
+    $('.edit-who').html(`You are editing ${data.name}.`).removeClass('hidden');
+    $('.character-number').addClass('hidden');
     $('.character-name').val(data.name);
     $('.character-level').val(data.level);
     $('.character-alignment').val(data.alignment);
@@ -154,6 +159,7 @@ function editCharacterSubmit(){
         loadCharacters();
         clearEdits();
         $('.edit-who').html('').addClass('hidden');
+        $('.character-number').removeClass('hidden');
     });
 }
 

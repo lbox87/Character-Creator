@@ -33,7 +33,7 @@
 
     <div class="row fixed-container">
       <form class="col-12 create-character ">
-        <h3 class="hidden edit-who"></h3>
+  
         <label for="name"><b>Name</b></label>
         <input type="text" placeholder="John Doe" name="character-name" class="character-name" required>
         <br>
@@ -51,18 +51,22 @@
         <input type="text" placeholder="Lawful Good,etc." name="character-alignment" class="character-alignment"
           required>
         <br>
+        
         <button type="submit">Create a New Character</button>
         <br>
-        <button type="button" class="hidden submit-changes">Submit Changes</button>
+        <button type="button" class="hidden all-submit-shift submit-changes">Submit Changes</button>
         <br>
-        <button type="button" class="view-all">View All Characters</button>
+        <button type="button" class="view-all all-submit-shift">View All Characters</button>
         <br>
-        <button type="button" class="hidden view-fewer">View Fewer Characters</button>
+        <button type="button" class="hidden view-fewer fewer-shift">View Fewer Characters</button>
+        
+        <h3 class="count-shift character-number"></h3>
+        <h3 class="hidden edit-who"></h3>
       </form>
     </div>
 
     <div class="row shift-container">
-        <h2 class="col-12 center character-number"></h2>
+        
     <ul class="list-characters center">
       
     </ul>
