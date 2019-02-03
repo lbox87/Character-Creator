@@ -15,7 +15,6 @@ app.get('/characters', (req, res) => {
     .find()
     // .limit(10)   
     .then(characters => {
-      // console.log(characters);
       res.json({
         characters: characters.map(
           (character) => character.serialize())
@@ -32,7 +31,6 @@ app.get('/summary', (req, res) => {
     .find()
     .limit(10)   
     .then(characters => {
-      // console.log(characters);
       res.json({
         characters: characters.map(
           (character) => character.serialize())
@@ -50,7 +48,10 @@ app.get('/characters/:id', (req, res) => {
     // this is a convenience method Mongoose provides for searching
     // by the object _id property
     .findById(req.params.id)
-    .then(character => res.json(character.serialize()))
+    .then(character => {
+         console.log(character);
+      res.json(character.serialize())
+    })
     .catch(err => {
       console.error(err);
       res.status(500).json({ message: 'Internal server error' });
@@ -78,7 +79,10 @@ app.post('/characters', (req, res) => {
       level: req.body.level,
       alignment: req.body.alignment
     })
-    .then(character => res.status(201).json(character.serialize()))
+    .then(character => {
+      console.log(character);
+      res.status(201).json(character.serialize())
+    })
     .catch(err => {
       console.error(err);
       res.status(500).json({ message: 'Internal server error' });

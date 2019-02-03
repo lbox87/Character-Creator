@@ -8,7 +8,7 @@ const expect = chai.expect;
 chai.use(chaiHttp);
 
 const goodPass = {
-  name: "test",
+  name: "test007",
   race: "test",
   class: "test",
   level: 1,
@@ -31,9 +31,13 @@ describe('Test Update Functions', function () {
     chai.request(app).post('/characters').send(goodPass).then(function (res) {
       let goodParams = {
         name: "test2",
+        race: "test",
+        class: "test",
+        level: 1,
+        alignment: "test",
         id: res.id
-      }
-      return chai.request(app).put('/characters/' + res.id).send(JSON.stringify(goodParams)).then(function (res) {
+      };
+      return chai.request(app).put(`/characters/${res.id}`).send(goodParams).then(function (res) {
         // expect(res).to.have.name("test2");
         expect(res).to.have.status(204);
         
