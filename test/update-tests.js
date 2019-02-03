@@ -3,6 +3,7 @@ const chaiHttp = require('chai-http');
 const { PORT, DATABASE_URL, TEST_DATABASE_URL } = require('../config');
 const { app, runServer, closeServer } = require('../server');
 
+require('dotenv').config();
 const expect = chai.expect;
 chai.use(chaiHttp);
 
@@ -14,13 +15,9 @@ const goodPass = {
   alignment: "test"
 };
 
-const badPass = {
-  name: "test"
-};
-
 describe('Test Update Functions', function () {
   before(function () {
-    return runServer(TEST_DATABASE_URL);
+    return runServer(DATABASE_URL);
   });
 
   after(function () {
@@ -36,8 +33,10 @@ describe('Test Update Functions', function () {
         name: "test2",
         id: res.id
       }
-      return chai.request(app).put('/characters/' + res.id).send(goodParams).then(function (res) {
+      return chai.request(app).put('/characters/' + res.id).send(JSON.stringify(goodParams)).then(function (res) {
+        // expect(res).to.have.name("test2");
         expect(res).to.have.status(204);
+        
       });
     });
   });
