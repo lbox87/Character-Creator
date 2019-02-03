@@ -77,8 +77,8 @@ header {
     top: 36%;
     margin-top: 20px;
     z-index:5;
-    height: 62%;
-    overflow:scroll;
+    height: 60%;
+    overflow:auto;
 }
 
 .shift-container, .fixed-container {
