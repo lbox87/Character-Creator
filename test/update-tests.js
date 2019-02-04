@@ -24,26 +24,34 @@ describe('Test Update Functions', function () {
     return closeServer();
   });
 
+  let testId;
 
   // requests to create a correctly submitted character
-  it('should have response status 204', function () {
+  it('put should have response status 204', function () {
 
-    chai.request(app).post('/characters').send(goodPass).then(function (res) {
+    return chai.request(app).post('/characters').send(goodPass).then(function (res) {
+      testId = res.body.id;
       let goodParams = {
-        name: "test2",
-        race: "test",
-        class: "test",
-        level: 1,
-        alignment: "test",
-        id: res.id
+        name: "test2.0",
+        id: testId
       };
-      return chai.request(app).put(`/characters/${res.id}`).send(goodParams).then(function (res) {
-        // expect(res).to.have.name("test2");
+
+      // testId = res.body.id;
+
+      return chai.request(app).put(`/characters/${testId}`).send(goodParams).then(function (res) {
         expect(res).to.have.status(204);
-        
+      // return res  
       });
-    });
+    })
+    // .then(res => {
+    //   chai.request(app).delete(`/characters/${res.body.id}`)
+    // });
   });
 
+  it('delete should have response status 204', function () {
+    return chai.request(app).delete(`/characters/${testId}`).then(function (res) {
+      expect(res).to.have.status(204);
+    });
+  });
 });
 

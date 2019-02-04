@@ -80,7 +80,7 @@ app.post('/characters', (req, res) => {
       alignment: req.body.alignment
     })
     .then(character => {
-      console.log(character);
+      // console.log(character);
       res.status(201).json(character.serialize())
     })
     .catch(err => {
@@ -115,7 +115,9 @@ app.put('/characters/:id', (req, res) => {
   Character
     // all key/value pairs in toUpdate will be updated -- that's what `$set` does
     .findByIdAndUpdate(req.params.id, { $set: toUpdate })
-    .then(character => res.status(204).end())
+    .then(character => {
+      res.status(204).json(character.serialize());
+    })
     .catch(err => res.status(500).json({ message: 'Internal server error' }));
 });
 
