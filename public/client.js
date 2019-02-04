@@ -156,8 +156,8 @@ function editCharacterSubmit(){
             body: JSON.stringify(editedCharacter),
             headers: { "Content-Type": "application/json" },
         })
-        loadCharacters();
-        clearEdits();
+        .then(loadCharacters)
+        clearEdits()
         $('.edit-who').html('').addClass('hidden');
         $('.character-number').removeClass('hidden');
     });
