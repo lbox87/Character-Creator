@@ -8,12 +8,10 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 const { PORT, DATABASE_URL } = require('./config');
 const { Character } = require('./models');
-// ---------------------------------------------------
-// GET requests to /characters => return 10 characters
+
 app.get('/characters', (req, res) => {
   Character
-    .find()
-    // .limit(10)   
+    .find() 
     .then(characters => {
       res.json({
         characters: characters.map(
@@ -42,25 +40,17 @@ app.get('/summary', (req, res) => {
     });
 });
 
-// can also request by ID
 app.get('/characters/:id', (req, res) => {
   Character
-    // this is a convenience method Mongoose provides for searching
-    // by the object _id property
     .findById(req.params.id)
-    .then(character => {
-         console.log(character);
-      res.json(character.serialize())
-    })
+    .then(character => res.json(character.serialize()))
     .catch(err => {
       console.error(err);
       res.status(500).json({ message: 'Internal server error' });
     });
 });
 
-
 app.post('/characters', (req, res) => {
-  // console.log(req);
   const requiredFields = ['name', 'race', 'class'];
   for (let i = 0; i < requiredFields.length; i++) {
     const field = requiredFields[i];
@@ -70,7 +60,6 @@ app.post('/characters', (req, res) => {
       return res.status(400).send(message);
     }
   }
-
   Character
     .create({
       name: req.body.name,
@@ -80,7 +69,6 @@ app.post('/characters', (req, res) => {
       alignment: req.body.alignment
     })
     .then(character => {
-      // console.log(character);
       res.status(201).json(character.serialize())
     })
     .catch(err => {
@@ -88,7 +76,6 @@ app.post('/characters', (req, res) => {
       res.status(500).json({ message: 'Internal server error' });
     });
 });
-
 
 app.put('/characters/:id', (req, res) => {
   // ensure that the id in the request path and the one in request body match
@@ -100,9 +87,6 @@ app.put('/characters/:id', (req, res) => {
     return res.status(400).json({ message: message });
   }
 
-  // we only support a subset of fields being updateable.
-  // if the user sent over any of the updatableFields, we udpate those values
-  // in document
   const toUpdate = {};
   const updateableFields = ['name', 'race', 'class', 'level', 'alignment'];
 
@@ -113,7 +97,7 @@ app.put('/characters/:id', (req, res) => {
   });
 
   Character
-    // all key/value pairs in toUpdate will be updated -- that's what `$set` does
+    // all key/value pairs in toUpdate will be updated using `$set`
     .findByIdAndUpdate(req.params.id, { $set: toUpdate })
     .then(character => {
       res.status(204).json(character.serialize());
@@ -133,12 +117,9 @@ app.use('*', function (req, res) {
   res.status(404).json({ message: 'Not Found' });
 });
 
-// ---------------------------------------------------
 let server;
 
-
 function runServer(databaseUrl, port = PORT) {
-  // throw new Error (databaseUrl);
   return new Promise((resolve, reject) => {
     mongoose.connect(databaseUrl, err => {
       if (err) {
@@ -156,8 +137,6 @@ function runServer(databaseUrl, port = PORT) {
   });
 }
 
-// this function closes the server, and returns a promise. we'll
-// use it in our integration tests later.
 function closeServer() {
   return mongoose.disconnect().then(() => {
     return new Promise((resolve, reject) => {
@@ -176,7 +155,4 @@ if (require.main === module) {
   runServer(DATABASE_URL).catch(err => console.error(err));
 }
 
-// export defined variables and functions to be used elsewhere
-// this syntax is an object that actually returns:
-// {app: app, runServer: runServer, closeServer: closeServer}
 module.exports = { app, runServer, closeServer }
