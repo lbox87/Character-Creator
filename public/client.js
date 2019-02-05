@@ -4,7 +4,6 @@ function loadCharacters() {
         if (response.ok) {
             return response.json();
         }
-        // console.log(response);
         // if (response.statusText == "") {
         //     throw new Error("Try Again");
         // }
@@ -96,10 +95,7 @@ function newCharacterSubmitted() {
             body: JSON.stringify(submittedCharacter),
             headers: { "Content-Type": "application/json" },
         })
-        // .then(response => {
-        //     console.log(response);
-        //     displayCharacters(response);})
-        loadCharacters();
+        .then(loadCharacters);
         clearEdits();
     });
 }
@@ -113,11 +109,6 @@ function editCharacterScreen() {
             if (response.ok) {
                 return response.json();
             }
-            // console.log(response);
-            // if (response.statusText == "") {
-            //     throw new Error("Try Again");
-            // }
-            // throw new Error(response.statusText);
         })
         .then(response => {
             console.log(response);

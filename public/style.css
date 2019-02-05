@@ -15,7 +15,6 @@ html {
 }
 
 label {
-    /* text-align: center; */
     display:inline-block;
     width:100px;
     text-align: left;
@@ -24,25 +23,21 @@ label {
 button {
     width: 189px;
     margin-top: 5px;
-    
 }
 
 .all-submit-shift {
     position: relative;
     top: -24px;
-    /* left: -2px; */
 }
 
 .count-shift {
     position: relative;
     top: -55px;
-    /* left: -2px; */
 }
 
 .edit-who {
     position: relative;
     top: -95px;
-    /* left: -2px; */
 }
 
 .fewer-shift {
@@ -89,8 +84,8 @@ header {
 
 ul {
     list-style-type: none;
-padding: 0;
-margin: 0;  
+    padding: 0;
+    margin: 0;  
 }
 
 .details {
