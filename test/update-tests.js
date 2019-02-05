@@ -17,7 +17,7 @@ const goodPass = {
 
 describe('Test Update Functions', function () {
   before(function () {
-    return runServer(DATABASE_URL);
+    return runServer(TEST_DATABASE_URL);
   });
 
   after(function () {
