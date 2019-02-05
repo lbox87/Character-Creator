@@ -24,9 +24,17 @@ describe('Test Read Functions', function() {
       });
   });
 
-  it('should have status 200', function() {
+  it('should have status 200 to load all', function() {
     return chai.request(app)
       .get('/characters')
+      .then(function(res) {
+        expect(res).to.have.status(200);
+      });
+  });
+
+  it('should have status 200 to load 10', function() {
+    return chai.request(app)
+      .get('/summary')
       .then(function(res) {
         expect(res).to.have.status(200);
       });

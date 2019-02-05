@@ -28,20 +28,16 @@ describe('Test Create Functions', function() {
     return closeServer();
   });
 
-  // requests to create a correctly submitted character
-  it('should have response status 201', function () {
+  it('should have response status 201 for correct post', function () {
     return chai.request(app)
       .post('/characters')
       .send(goodPass)
       .then(function (res) {
-        // expect(res.character.name).to.equal("test");
         expect(res).to.have.status(201);
       });
-      
   });
 
-   // requests to create an incorrectly submitted character
-  it('should have response status 500', function() {
+  it('should have response status 500 for incorrect post', function() {
     return chai.request(app)
       .post('/characters')
       .send(badPass)
@@ -49,6 +45,5 @@ describe('Test Create Functions', function() {
         expect(res).to.have.status(400);
       });
   });
-
 });
 
