@@ -4,10 +4,6 @@ function loadCharacters() {
         if (response.ok) {
             return response.json();
         }
-        // if (response.statusText == "") {
-        //     throw new Error("Try Again");
-        // }
-        // throw new Error(response.statusText);
     })
     .then(response => {
         console.log(response);
@@ -33,10 +29,6 @@ function getFewerCharacters() {
     })
 }
 
-// function viewToggle() {
-//     if (${'.view-toggle'}.val === )
-// }
-
 function getInitialCharacters(){
     $('.character-number').html("Displaying ten oldest characters.");
     fetch('/summary')
@@ -44,11 +36,6 @@ function getInitialCharacters(){
                 if (response.ok) {
                     return response.json();
                 }
-                // console.log(response);
-                // if (response.statusText == "") {
-                //     throw new Error("Try Again");
-                // }
-                // throw new Error(response.statusText);
             })
             .then(response => {
                 console.log(response);
@@ -60,12 +47,10 @@ function displayCharacters(data) {
     for (index in data.characters) {
         $('.list-characters').append(
             '<li class="col-12 details">' +
-            // '<div class="buttons">' +
             '<span class="col-3">' +
             `<button type="button" class="edit-character" id=\"${data.characters[index].id}\">Edit</button>`+
             `<button type="button" class="delete-character" id=\"${data.characters[index].id}\">Delete</button>`+
             '</span>' +
-            // '</div>' +
             '<span class="col-9">' +
             data.characters[index].name + " the level " +
             data.characters[index].level + " " +
