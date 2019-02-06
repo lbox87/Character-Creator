@@ -3,7 +3,7 @@
 <br>
 
 <h2>What does it do?</h2>
-<p>This is a simple CRUD app that allows the user to maitiain a database of RPG characters.</p>
+<p>This is a simple CRUD app that allows the user to maintain a database of RPG characters.</p>
 <div><img src="https://user-images.githubusercontent.com/23705300/52311954-69391200-296e-11e9-89ca-915d8302117f.JPG"></div>
 
 <p> v1.0 serves to demonstrate understanding of fullstack basics for a Thinkful assignment. </p>
