@@ -11,7 +11,7 @@ const { Character } = require('./models');
 
 app.get('/characters', (req, res) => {
   Character
-    .find() 
+    .find()
     .then(characters => {
       res.json({
         characters: characters.map(
@@ -27,7 +27,7 @@ app.get('/characters', (req, res) => {
 app.get('/summary', (req, res) => {
   Character
     .find()
-    .limit(10)   
+    .limit(10)
     .then(characters => {
       res.json({
         characters: characters.map(

@@ -2,18 +2,18 @@
 
 const mongoose = require('mongoose');
 const { PORT, DATABASE_URL } = require('./config');
-mongoose.connect(DATABASE_URL, {useNewUrlParser: true});
+mongoose.connect(DATABASE_URL, { useNewUrlParser: true });
 require('dotenv').config();
 
 const characterSchema = mongoose.Schema({
-  name: {type: String, required: true},
-  race: {type: String, required: true},
-  class: {type: String, required: true},
-  level: {type: Number, required: true},
-  alignment: {type: String, required: true},
+  name: { type: String, required: true },
+  race: { type: String, required: true },
+  class: { type: String, required: true },
+  level: { type: Number, required: true },
+  alignment: { type: String, required: true },
 });
 
-characterSchema.methods.serialize = function() {
+characterSchema.methods.serialize = function () {
   return {
     id: this._id,
     name: this.name,
@@ -26,4 +26,4 @@ characterSchema.methods.serialize = function() {
 
 const Character = mongoose.model('Character', characterSchema);
 
-module.exports = {Character};
+module.exports = { Character };

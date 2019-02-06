@@ -1,13 +1,15 @@
+// refresh function to run after various responses
 function loadCharacters() {
     fetch('/characters')
-    .then(response => {
-        if (response.ok) {
-            return response.json();
-        }
-    })
-    .then(response => {
-        console.log(response);
-        displayCharacters(response);})
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+        })
+        .then(response => {
+            console.log(response);
+            displayCharacters(response);
+        })
 }
 
 function getCharacters() {
@@ -29,17 +31,18 @@ function getFewerCharacters() {
     })
 }
 
-function getInitialCharacters(){
+function getInitialCharacters() {
     $('.character-number').html("Displaying ten oldest characters.");
     fetch('/summary')
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
-                }
-            })
-            .then(response => {
-                console.log(response);
-                displayCharacters(response);})
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+        })
+        .then(response => {
+            console.log(response);
+            displayCharacters(response);
+        })
 }
 
 function displayCharacters(data) {
@@ -48,8 +51,8 @@ function displayCharacters(data) {
         $('.list-characters').append(
             '<li class="col-12 details">' +
             '<span class="col-3">' +
-            `<button type="button" class="edit-character" id=\"${data.characters[index].id}\">Edit</button>`+
-            `<button type="button" class="delete-character" id=\"${data.characters[index].id}\">Delete</button>`+
+            `<button type="button" class="edit-character" id=\"${data.characters[index].id}\">Edit</button>` +
+            `<button type="button" class="delete-character" id=\"${data.characters[index].id}\">Delete</button>` +
             '</span>' +
             '<span class="col-9">' +
             data.characters[index].name + " the level " +
@@ -59,11 +62,10 @@ function displayCharacters(data) {
             data.characters[index].class + " " +
             '</span>' +
             '</li>'
-            );
+        );
     }
 }
 
-// store submitted character
 function newCharacterSubmitted() {
     $('.create-character').submit(event => {
         event.preventDefault();
@@ -80,7 +82,7 @@ function newCharacterSubmitted() {
             body: JSON.stringify(submittedCharacter),
             headers: { "Content-Type": "application/json" },
         })
-        .then(loadCharacters);
+            .then(loadCharacters);
         clearEdits();
     });
 }
@@ -90,15 +92,15 @@ function editCharacterScreen() {
         console.log(`edit endpoint is /characters/${event.target.id}`);
         $('.submit-changes').removeClass('hidden');
         fetch(`/characters/${event.target.id}`)
-        .then(response => {
-            if (response.ok) {
-                return response.json();
-            }
-        })
-        .then(response => {
-            console.log(response);
-            displayEdits(response);
-        })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                }
+            })
+            .then(response => {
+                console.log(response);
+                displayEdits(response);
+            })
     });
 }
 
@@ -113,7 +115,7 @@ function displayEdits(data) {
     $('.submit-changes').attr(`id`, data.id);
 }
 
-function editCharacterSubmit(){
+function editCharacterSubmit() {
     $('.submit-changes').click(event => {
         event.preventDefault();
         console.log(`submit changes is running and id is ${event.target.id}`);
@@ -132,7 +134,7 @@ function editCharacterSubmit(){
             body: JSON.stringify(editedCharacter),
             headers: { "Content-Type": "application/json" },
         })
-        .then(loadCharacters)
+            .then(loadCharacters)
         clearEdits()
         $('.edit-who').html('').addClass('hidden');
         $('.character-number').removeClass('hidden');
@@ -158,7 +160,7 @@ function deleteCharacter() {
             body: JSON.stringify(characterDelete),
             headers: { "Content-Type": "application/json" },
         })
-        .then(loadCharacters);
+            .then(loadCharacters);
     });
 }
 
