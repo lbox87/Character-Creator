@@ -7,7 +7,7 @@
 <div><img src="https://user-images.githubusercontent.com/23705300/52311954-69391200-296e-11e9-89ca-915d8302117f.JPG"></div>
 
 <p> v1.0 serves to demonstrate understanding of fullstack basics for a Thinkful assignment. </p>
-<p> Upcoming features will include individual sign-in, list sorting, and more detailed character statistics and descriptions.</p> 
+<p> Upcoming features will include individual sign-in, list sorting, more detailed character statistics, a suite of weapons and items that can be added to characters to modify stats, and race/class templates for base stats.</p> 
 
 <h2>Built With</h2>
 <p>This app uses HTML, CSS, JavaScript, JQuery, MongoDB, Express and Mongoose.
