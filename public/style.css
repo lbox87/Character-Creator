@@ -57,14 +57,25 @@ header {
     height: 30%;
 }
 
-.fixed-container {
-    top:60px;
+.blurb {
+    margin: auto;
+    width: 50%;
+}
+
+.fixed-container, .landing-page {
+    top:65px;
     position: fixed;
     text-align: center;
     height: 30%;
     width: 100%;
     z-index:10;
     background-color: darkgrey;
+}
+
+.disclaimer {
+    position: absolute;
+    top: 75%;
+    font-size: 9pt
 }
 
 .shift-container {
@@ -76,7 +87,7 @@ header {
     overflow:auto;
 }
 
-.shift-container, .fixed-container {
+.shift-container, .fixed-container, .landing-page {
     width: 100%;
     left:50%;
     transform: translate(-50%, 0);

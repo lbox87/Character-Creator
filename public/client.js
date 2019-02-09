@@ -22,6 +22,16 @@ function getCharacters() {
     })
 }
 
+function openApp() {
+    $('.get-started').click(event => {
+        event.preventDefault();
+        console.log(`button is running`);
+        $('.fixed-container').removeClass('hidden');
+        $('.shift-container').removeClass('hidden');
+        $('.landing-page').addClass('hidden');
+    })
+}
+
 function getFewerCharacters() {
     $('.view-fewer').click(event => {
         $('.view-all').removeClass('hidden');
@@ -172,6 +182,7 @@ function docReady() {
     editCharacterScreen();
     editCharacterSubmit();
     getInitialCharacters();
+    openApp();
 }
 
 $(docReady);

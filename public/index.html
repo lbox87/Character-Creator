@@ -12,7 +12,8 @@
   <link href="style.css" rel="stylesheet">
 
   <!-- normalize -->
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
 
   <!-- font -->
 
@@ -26,11 +27,32 @@
 
 <body>
   <header role="banner">
-    <h1> Character Creator </h1>
+    <h1> Tabletop RPG Character Creator </h1>
   </header>
   <main role="main">
 
-    <div class="row fixed-container">
+    <div class="row landing-page">
+
+      <p class="blurb">Welcome to Tabletop RPG Character Creator!
+        With this app you can easily create and store basic character data to use in tabletop games.
+        Once you fill out the short form, select create character to add it to the database.
+        Stored characters can be editted and deleted.
+        <br> <br>
+        <button type="button" class="get-started">Get Started</button>
+      </p>
+
+
+
+      <p class="disclaimer col-12">Note: This early build is not a final product
+        and is intended to demonstrate basic usage of Node, Express, and Mongoose to build a
+        front to back end app with basic CRUD functionality. Future builds will
+        integrate this app with a suite of other apps for a custom homebrew game.
+        Follow my Github repo <a href="https://github.com/lbox87/Character-Creator">here</a>
+        to check out planned and in-progress features.</p>
+
+    </div>
+
+    <div class="row fixed-container hidden">
       <form class="col-12 create-character ">
 
         <label for="name"><b>Name</b></label>
@@ -64,7 +86,7 @@
       </form>
     </div>
 
-    <div class="row shift-container">
+    <div class="row shift-container hidden">
 
       <ul class="list-characters center">
 
