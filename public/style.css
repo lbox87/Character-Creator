@@ -29,6 +29,8 @@ button {
     margin-top: 5px;
 }
 
+
+
 .all-submit-shift, .count-shift, .edit-who, .fewer-shift {
 position: relative;
 }
@@ -112,4 +114,11 @@ ul {
 .details {
     border: 1px solid black;
     margin-bottom: 5px;
+}
+
+@media only screen and (max-width: 640px) {
+    .edit-character, .delete-character {
+      width: 100px;
+      margin-top: 5px;
+  }
 }
