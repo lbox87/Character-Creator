@@ -116,9 +116,35 @@ ul {
     margin-bottom: 5px;
 }
 
-@media only screen and (max-width: 640px) {
+@media screen and (max-width: 640px) {
     .edit-character, .delete-character {
       width: 100px;
       margin-top: 5px;
   }
+    .title {
+    font-size: 15pt;
+    }
+
+   .character-number {
+        font-size: 12pt;
+        }
+
+    .fixed-container{
+        top:40px;
+        position: fixed;
+        text-align: center;
+        height: 30%;
+        width: 100%;
+        z-index:10;
+        background-color: darkgrey;
+    }
+
+    .shift-container {
+        position: absolute;
+        top: 40%;
+        margin-top: 20px;
+        z-index:5;
+        height: 60%;
+        overflow:auto;
+    }
 }
