@@ -26,6 +26,11 @@
   }
   
   @media only screen and (min-width: 640px) {
+    button {
+      width: 100px;
+      margin-top: 5px;
+  }
+
     .col-3 {
       width: 25%;
     }
