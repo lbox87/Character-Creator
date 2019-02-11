@@ -29,8 +29,6 @@ button {
     margin-top: 5px;
 }
 
-
-
 .all-submit-shift, .count-shift, .edit-who, .fewer-shift {
 position: relative;
 }
@@ -141,7 +139,7 @@ ul {
 
     .shift-container {
         position: absolute;
-        top: 40%;
+        top: 240px;
         margin-top: 20px;
         z-index:5;
         height: 60%;
