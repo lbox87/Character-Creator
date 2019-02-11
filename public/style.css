@@ -63,7 +63,7 @@ header {
 
 .blurb {
     margin: auto;
-    width: 75%;
+    width: 400px;
 }
 
 .fixed-container, .landing-page {
@@ -86,7 +86,7 @@ header {
 
 .shift-container {
     position: absolute;
-    top: 36%;
+    top: 280px;
     margin-top: 20px;
     z-index:5;
     height: 60%;
@@ -121,6 +121,10 @@ ul {
   }
     .title {
     font-size: 15pt;
+    }
+
+    .blurb {
+        width: 75%;
     }
 
    .character-number {
