@@ -14,6 +14,11 @@ html {
     box-sizing:inherit;
 }
 
+.title{
+    position: relative;
+    top: -5px;
+}
+
 .hidden {
     visibility: hidden; 
 }
@@ -125,6 +130,25 @@ ul {
     background-color: #424c52e1;
 }
 
+#dragon, #dragon2 {
+    height:40px;
+    display: inline-block;
+    position: relative;
+    top: 13px;
+}
+
+#dragon2 {
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+}
+
+.dragon {
+height: 100%;
+}
 
 @media screen and (max-width: 640px) {
     .edit-character, .delete-character {
@@ -146,6 +170,11 @@ ul {
     .edit-who {
         top: -90px;
         }
+
+    #dice, #dice2 {
+        height: 12px;
+        width: 12px;
+    }
 
     .fixed-container{
         top:40px;
