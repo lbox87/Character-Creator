@@ -1,11 +1,15 @@
 * {
     font-family: 'Nunito', sans-serif;
+    color: #a5aaad;
     /* border: 1px solid black; */
 }
 
 html {
     box-sizing:border-box;
-    background-color: darkgrey;
+    /* background-color: #EC6A5C; */
+    background-image: url("https://images.unsplash.com/photo-1522617804560-8454764f1815?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80");
+    background-position: top center;
+    background-repeat: no-repeat;
 }
 
 *,*:before,*:after{
@@ -28,6 +32,7 @@ label {
 button {
     width: 189px;
     margin-top: 5px;
+    background-color: #52616a;
 }
 
 .all-submit-shift, .count-shift, .edit-who, .fewer-shift, .create-new  {
@@ -78,7 +83,7 @@ header {
     height: 230px;
     width: 100%;
     z-index:10;
-    background-color: darkgrey;
+    /* background-color: darkgrey; */
 }
 
 .disclaimer {
@@ -88,6 +93,7 @@ header {
     left:50%;
     transform: translate(-50%, 0);
 }
+
 
 .shift-container {
     position: absolute;
@@ -115,9 +121,15 @@ ul {
 }
 
 .details {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     margin-bottom: 5px;
+    /* background-color: #ED9282; */
 }
+
+.details, .disclaimer, .edit-who, .character-number {
+    background-color: #424c52e1;
+}
+
 
 @media screen and (max-width: 640px) {
     .edit-character, .delete-character {
@@ -143,12 +155,12 @@ ul {
         height: 30%;
         width: 100%;
         z-index:10;
-        background-color: darkgrey;
+        /* background-color: darkgrey; */
     }
 
     .shift-container {
         position: absolute;
-        top: 258px;
+        top: 266px;
         margin-top: 20px;
         z-index:5;
         height: 60%;
