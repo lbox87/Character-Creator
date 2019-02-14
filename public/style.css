@@ -197,4 +197,9 @@ height: 100%;
     .fewer-shift {
         top: -52px;
     }
+
+    .title{
+        position: relative;
+        top: -22px;
+    }
 }
