@@ -148,10 +148,15 @@ ul {
 
     .shift-container {
         position: absolute;
-        top: 240px;
+        top: 250px;
         margin-top: 20px;
         z-index:5;
         height: 60%;
         overflow:auto;
+    }
+
+    .fewer-shift {
+        top: -52px;
+        /* left: -3px; */
     }
 }
