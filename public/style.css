@@ -1,6 +1,7 @@
-/* * {
-    border: 1px solid black;
-} */
+* {
+    font-family: 'Nunito', sans-serif;
+    /* border: 1px solid black; */
+}
 
 html {
     box-sizing:border-box;
@@ -29,8 +30,12 @@ button {
     margin-top: 5px;
 }
 
-.all-submit-shift, .count-shift, .edit-who, .fewer-shift {
+.all-submit-shift, .count-shift, .edit-who, .fewer-shift, .create-new  {
 position: relative;
+}
+
+.create-new {
+    top: 4px;
 }
 
 .all-submit-shift {
@@ -38,7 +43,7 @@ position: relative;
 }
 
 .count-shift {
-    top: -55px;
+    top: -52px;
 }
 
 .edit-who {
@@ -46,7 +51,7 @@ position: relative;
 }
 
 .fewer-shift {
-    top: -48px;
+    top: -52px;
     left: -3px;
 }
 
@@ -86,10 +91,10 @@ header {
 
 .shift-container {
     position: absolute;
-    top: 280px;
+    top: 315px;
     margin-top: 20px;
     z-index:5;
-    height: 60%;
+    height: 400px;
     overflow:auto;
 }
 

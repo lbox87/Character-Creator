@@ -101,6 +101,7 @@ function editCharacterScreen() {
     $('.list-characters').on('click', '.edit-character', event => {
         console.log(`edit endpoint is /characters/${event.target.id}`);
         $('.submit-changes').removeClass('hidden');
+        $('.create-new').addClass('hidden');
         fetch(`/characters/${event.target.id}`)
             .then(response => {
                 if (response.ok) {
@@ -138,6 +139,7 @@ function editCharacterSubmit() {
             alignment: $('.character-alignment').val()
         };
         $('.submit-changes').addClass('hidden');
+        $('.create-new').removeClass('hidden');
         console.log(JSON.stringify(editedCharacter));
         fetch(`/characters/${event.target.id}`, {
             method: "PUT",
