@@ -1,12 +1,10 @@
 * {
     font-family: 'Nunito', sans-serif;
     color: #a5aaad;
-    /* border: 1px solid black; */
 }
 
 html {
     box-sizing:border-box;
-    /* background-color: #EC6A5C; */
     background-image: url("https://images.unsplash.com/photo-1522617804560-8454764f1815?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80");
     background-position: top center;
     background-repeat: no-repeat;
@@ -83,7 +81,6 @@ header {
     height: 230px;
     width: 100%;
     z-index:10;
-    /* background-color: darkgrey; */
 }
 
 .disclaimer {
@@ -121,9 +118,7 @@ ul {
 }
 
 .details {
-    /* border: 1px solid black; */
     margin-bottom: 5px;
-    /* background-color: #ED9282; */
 }
 
 .details, .disclaimer, .edit-who, .character-number {
@@ -147,6 +142,10 @@ ul {
    .character-number, .edit-who {
         font-size: 12pt;
         }
+    
+    .edit-who {
+        top: -90px;
+        }
 
     .fixed-container{
         top:40px;
@@ -155,7 +154,6 @@ ul {
         height: 30%;
         width: 100%;
         z-index:10;
-        /* background-color: darkgrey; */
     }
 
     .shift-container {
@@ -169,6 +167,5 @@ ul {
 
     .fewer-shift {
         top: -52px;
-        /* left: -3px; */
     }
 }
